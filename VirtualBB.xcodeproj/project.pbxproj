@@ -14,6 +14,7 @@
 		B53CF1421A2D22730089B980 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53CF1411A2D22730089B980 /* Images.xcassets */; };
 		B53CF1451A2D22730089B980 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53CF1431A2D22730089B980 /* LaunchScreen.xib */; };
 		B53CF1511A2D22730089B980 /* VirtualBBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF1501A2D22730089B980 /* VirtualBBTests.m */; };
+		B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF15B1A2D24940089B980 /* VBBClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		B53CF14A1A2D22730089B980 /* VirtualBBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualBBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53CF14F1A2D22730089B980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53CF1501A2D22730089B980 /* VirtualBBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualBBTests.m; sourceTree = "<group>"; };
+		B53CF15A1A2D24940089B980 /* VBBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBClient.h; sourceTree = "<group>"; };
+		B53CF15B1A2D24940089B980 /* VBBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBBClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				B53CF1391A2D22730089B980 /* AppDelegate.m */,
 				B53CF13B1A2D22730089B980 /* ViewController.h */,
 				B53CF13C1A2D22730089B980 /* ViewController.m */,
+				B53CF15A1A2D24940089B980 /* VBBClient.h */,
+				B53CF15B1A2D24940089B980 /* VBBClient.m */,
 				B53CF13E1A2D22730089B980 /* Main.storyboard */,
 				B53CF1411A2D22730089B980 /* Images.xcassets */,
 				B53CF1431A2D22730089B980 /* LaunchScreen.xib */,
@@ -223,6 +228,7 @@
 				B53CF13D1A2D22730089B980 /* ViewController.m in Sources */,
 				B53CF13A1A2D22730089B980 /* AppDelegate.m in Sources */,
 				B53CF1371A2D22730089B980 /* main.m in Sources */,
+				B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
