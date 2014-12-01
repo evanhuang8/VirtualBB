@@ -23,10 +23,17 @@
 }
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password {
-    
+    NSDictionary *response = [[NSDictionary alloc] initWithObjectsAndKeys:@"OK", "status", @"123", @"token", nil];
+    if (self.delegate) {
+        [self.delegate requestForType:VBBLogin withResponse:response];
+    }
 }
 
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password {
+    NSDictionary *response = [[NSDictionary alloc] initWithObjectsAndKeys:@"OK", "status", @"123", @"token", nil];
+    if (self.delegate) {
+        [self.delegate requestForType:VBBRegister withResponse:response];
+    }
     
 }
 
