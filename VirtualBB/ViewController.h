@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *txtUsername;
+
+@property (strong, nonatomic) IBOutlet UITextField *txtPassword;
+
 
 @end
 
