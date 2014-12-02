@@ -7,14 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "VBBClient.h"
 
-@interface ViewController ()
+@interface ViewController()<VBBClientDelegate>
+
+@property VBBClient *client;
 
 @end
 
 
 @implementation ViewController
 @synthesize txtUsername, txtPassword;
+
+- (void)requestForType:(VBBRequestType)type withResponse:(NSDictionary *)response {
+    
+}
 
 - (IBAction)signIn:(id)sender {
     NSLog(@"The user name is: %@ and the password is %@",txtUsername.text,txtPassword.text);
@@ -104,6 +111,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.client = [[VBBClient alloc] init];
+    self.client.delegate = self;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
