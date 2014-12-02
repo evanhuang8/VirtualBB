@@ -7,10 +7,14 @@
 //
 
 #import "VBBClient.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface VBBClient()
 
 @property (copy) NSString *token;
+@property NSString *baseUrl;
+
+@property AFHTTPRequestOperationManager *manager;
 
 @end
 
@@ -19,18 +23,20 @@
 - (id)initWithToken:(NSString *)token {
     self = [super init];
     self.token = token;
+    self.baseUrl = @"http://dev.virtualbb.com/";
+    self.manager = [AFHTTPRequestOperationManager manager];
     return self;
 }
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password {
-    NSDictionary *response = [[NSDictionary alloc] initWithObjectsAndKeys:@"OK", "status", @"123", @"token", nil];
+    NSDictionary *response = @{@"status": @"OK", @"token": @"token"};
     if (self.delegate) {
         [self.delegate requestForType:VBBLogin withResponse:response];
     }
 }
 
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password {
-    NSDictionary *response = [[NSDictionary alloc] initWithObjectsAndKeys:@"OK", "status", @"123", @"token", nil];
+    NSDictionary *response = @{@"status": @"OK", @"token": @"token"};
     if (self.delegate) {
         [self.delegate requestForType:VBBRegister withResponse:response];
     }
