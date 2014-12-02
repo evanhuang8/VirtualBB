@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HomepageViewController.h"
 #import "VBBClient.h"
 
 @interface ViewController()<VBBClientDelegate>
@@ -17,83 +18,28 @@
 
 
 @implementation ViewController
-@synthesize txtUsername, txtPassword;
+@synthesize txtUsername, txtPassword,client;
 
 - (void)requestForType:(VBBRequestType)type withResponse:(NSDictionary *)response {
-    
+    if (type == VBBLogin){
+        NSString *result=[response valueForKey:@"status"];
+        if ([result isEqualToString:@"OK"] ){
+            //push the homepage vc to the navi controller.
+            HomepageViewController *homepage =[[HomepageViewController alloc]init];
+            [self.navigationController pushViewController:homepage animated:YES];
+        }
+        else {
+            //prop the user to try again
+            //could split the error string and customize error handling & pop message. All error msg
+            //starts with a Failed.
+            [self popMsg:result :@"Please try again" :1];
+        }
+    }
 }
 
 - (IBAction)signIn:(id)sender {
     NSLog(@"The user name is: %@ and the password is %@",txtUsername.text,txtPassword.text);
-    NSInteger success = 0;
-    @try {
-        
-        if([[self.txtUsername text] isEqualToString:@""] || [[self.txtPassword text] isEqualToString:@""] ) {
-            
-            [self popMsg:@"Please enter Email and Password" :@"Sign in Failed!" :0];
-            
-        } else {
-            NSString *post =[[NSString alloc] initWithFormat:@"username=%@&password=%@",[self.txtUsername text],[self.txtPassword text]];
-            NSLog(@"PostData: %@",post);
-            
-            NSURL *url=[NSURL URLWithString:@"http://dipinkrishna.com/jsonlogin.php"];
-            
-            NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-            
-            NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:url];
-            [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:postData];
-            
-            //[NSURLRequest setAllowsAnyHTTPSCertificate:YES forHost:[url host]];
-            
-            NSError *error = [[NSError alloc] init];
-            NSHTTPURLResponse *response = nil;
-            NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            NSLog(@"Response code: %ld", (long)[response statusCode]);
-            
-            if ([response statusCode] >= 200 && [response statusCode] < 300)
-            {
-                NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-                NSLog(@"Response ==> %@", responseData);
-                
-                NSError *error = nil;
-                NSDictionary *jsonData = [NSJSONSerialization
-                                          JSONObjectWithData:urlData
-                                          options:NSJSONReadingMutableContainers
-                                          error:&error];
-                
-                success = [jsonData[@"success"] integerValue];
-                NSLog(@"Success: %ld",(long)success);
-                
-                if(success == 1)
-                {
-                    NSLog(@"Login SUCCESS");
-                } else {
-                    
-                    NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                   [self popMsg:error_msg :@"Sign in Failed!" :0];
-                }
-                
-            } else {
-                //if (error) NSLog(@"Error: %@", error);
-               [self popMsg:@"Connection Failed" :@"Sign in Failed!" :0];
-            }
-        }
-    }
-    @catch (NSException * e) {
-        NSLog(@"Exception: %@", e);
-        [self popMsg:@"Sign in Failed." :@"Error!" :0];
-    }
-    if (success) {
-        [self performSegueWithIdentifier:@"login_success" sender:self];
-    }
+    [client loginWithEmail:txtUsername.text andPassword:txtPassword.text];
 }
 
 

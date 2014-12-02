@@ -15,6 +15,7 @@
 		B53CF1451A2D22730089B980 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B53CF1431A2D22730089B980 /* LaunchScreen.xib */; };
 		B53CF1511A2D22730089B980 /* VirtualBBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF1501A2D22730089B980 /* VirtualBBTests.m */; };
 		B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF15B1A2D24940089B980 /* VBBClient.m */; };
+		F26D369B1A2D9915007A7FE6 /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26D369A1A2D9915007A7FE6 /* HomepageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		B53CF1501A2D22730089B980 /* VirtualBBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VirtualBBTests.m; sourceTree = "<group>"; };
 		B53CF15A1A2D24940089B980 /* VBBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBClient.h; sourceTree = "<group>"; };
 		B53CF15B1A2D24940089B980 /* VBBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBBClient.m; sourceTree = "<group>"; };
+		F26D36991A2D9915007A7FE6 /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
+		F26D369A1A2D9915007A7FE6 /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				B53CF1391A2D22730089B980 /* AppDelegate.m */,
 				B53CF13B1A2D22730089B980 /* ViewController.h */,
 				B53CF13C1A2D22730089B980 /* ViewController.m */,
+				F26D36991A2D9915007A7FE6 /* HomepageViewController.h */,
+				F26D369A1A2D9915007A7FE6 /* HomepageViewController.m */,
 				B53CF15A1A2D24940089B980 /* VBBClient.h */,
 				B53CF15B1A2D24940089B980 /* VBBClient.m */,
 				B53CF13E1A2D22730089B980 /* Main.storyboard */,
@@ -227,6 +232,7 @@
 			files = (
 				B53CF13D1A2D22730089B980 /* ViewController.m in Sources */,
 				B53CF13A1A2D22730089B980 /* AppDelegate.m in Sources */,
+				F26D369B1A2D9915007A7FE6 /* HomepageViewController.m in Sources */,
 				B53CF1371A2D22730089B980 /* main.m in Sources */,
 				B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */,
 			);
@@ -421,6 +427,7 @@
 				B53CF1561A2D22730089B980 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B53CF1571A2D22730089B980 /* Build configuration list for PBXNativeTarget "VirtualBBTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +436,7 @@
 				B53CF1591A2D22730089B980 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
