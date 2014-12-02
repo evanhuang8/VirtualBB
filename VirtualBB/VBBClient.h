@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, VBBRequestType) {
 
 @protocol VBBClientDelegate <NSObject>
 
-- (void)requestForType:(VBBRequestType)type withResponse:(NSDictionary *)response;
+- (void)requestForType:(VBBRequestType)type withResponse:(id)response;
 
 @end
 

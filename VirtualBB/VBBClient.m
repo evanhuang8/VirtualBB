@@ -20,26 +20,53 @@
 
 @implementation VBBClient
 
-- (id)initWithToken:(NSString *)token {
+- (id)init {
     self = [super init];
-    self.token = token;
-    self.baseUrl = @"http://dev.virtualbb.com/";
+    self.baseUrl = @"http://dev.virtualbb.com:8080/";
     self.manager = [AFHTTPRequestOperationManager manager];
     return self;
 }
 
+- (id)initWithToken:(NSString *)token {
+    self = [super init];
+    self.baseUrl = @"http://dev.virtualbb.com:8080/";
+    self.manager = [AFHTTPRequestOperationManager manager];
+    self.token = token;
+    return self;
+}
+
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password {
-    NSDictionary *response = @{@"status": @"OK", @"token": @"token"};
-    if (self.delegate) {
-        [self.delegate requestForType:VBBLogin withResponse:response];
-    }
+    NSDictionary *params = @{@"email": email,
+                             @"password": password};
+    NSString *url = [NSString stringWithFormat:@"%@login/", self.baseUrl];
+    [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.delegate) {
+            [self.delegate requestForType:VBBLogin withResponse:responseObject];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (self.delegate) {
+            NSDictionary *response = @{@"status": @"FAIL",
+                                       @"message": @"Unknown error has occurred!"};
+            [self.delegate requestForType:VBBLogin withResponse:response];
+        }
+    }];
 }
 
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password {
-    NSDictionary *response = @{@"status": @"OK", @"token": @"token"};
-    if (self.delegate) {
-        [self.delegate requestForType:VBBRegister withResponse:response];
-    }
+    NSDictionary *params = @{@"email": email,
+                             @"password": password};
+    NSString *url = [NSString stringWithFormat:@"%@register/", self.baseUrl];
+    [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (self.delegate) {
+            [self.delegate requestForType:VBBRegister withResponse:responseObject];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (self.delegate) {
+            NSDictionary *response = @{@"status": @"FAIL",
+                                       @"message": @"Unknown error has occurred!"};
+            [self.delegate requestForType:VBBRegister withResponse:response];
+        }
+    }];
     
 }
 
