@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52FD6A21A2DBCAF00CC103C /* blackboard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B52FD6A11A2DBCAF00CC103C /* blackboard.jpg */; };
 		B53CF1371A2D22730089B980 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF1361A2D22730089B980 /* main.m */; };
 		B53CF13A1A2D22730089B980 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF1391A2D22730089B980 /* AppDelegate.m */; };
 		B53CF13D1A2D22730089B980 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53CF13C1A2D22730089B980 /* ViewController.m */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		4475731C5683CACEC06D61D8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD6279A3DBC630FF3B2F5B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B52FD6A11A2DBCAF00CC103C /* blackboard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackboard.jpg; sourceTree = "<group>"; };
 		B53CF1311A2D22730089B980 /* VirtualBB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualBB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53CF1351A2D22730089B980 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53CF1361A2D22730089B980 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		B53CF1331A2D22730089B980 /* VirtualBB */ = {
 			isa = PBXGroup;
 			children = (
+				B52FD6A11A2DBCAF00CC103C /* blackboard.jpg */,
 				B59D570E1A2DA9630019B824 /* text-pic-left.png */,
 				B59D57101A2DA9B60019B824 /* camera.png */,
 				B59D57121A2DA9CC0019B824 /* gear.png */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52FD6A21A2DBCAF00CC103C /* blackboard.jpg in Resources */,
 				B53CF1401A2D22730089B980 /* Main.storyboard in Resources */,
 				B53CF1451A2D22730089B980 /* LaunchScreen.xib in Resources */,
 				B59D57131A2DA9CC0019B824 /* gear.png in Resources */,
@@ -441,9 +445,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VirtualBB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -453,9 +460,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VirtualBB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
