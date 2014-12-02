@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *txtUsername;
+
+@property (strong, nonatomic) IBOutlet UITextField *txtPassword;
+
+- (IBAction)signIn:(id)sender;
 
 @end
 
