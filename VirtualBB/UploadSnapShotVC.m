@@ -30,7 +30,6 @@
             NSLog(@"SnapShot created!");
             self.uploadSuccessful = YES;
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:@"Your snapshot has been created!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alertView.delegate = self;
             [alertView show];
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:@"Upload failed, please try again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

@@ -10,6 +10,6 @@
 
 @interface SnapShotVC : UIViewController
 
-@property UIImage *image;
+@property NSDictionary *data;
 
 @end

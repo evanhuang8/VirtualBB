@@ -6,9 +6,13 @@
 //  Copyright (c) 2014 Washington University. All rights reserved.
 //
 
+#import <AFNetworking/UIKit+AFNetworking.h>
 #import "SnapShotVC.h"
 
 @interface SnapShotVC ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end
 
@@ -16,22 +20,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Set title
+    NSString *caption = [[self.data objectForKey:@"fields"] objectForKey:@"caption"];
+    if (caption.length == 0) {
+        caption = @"SnapShot";
+    }
+    self.title = caption;
+    // Create at
+    NSString *createdAt = [[self.data objectForKey:@"fields"] objectForKey:@"created_at"];
+    NSLog(@"%@", createdAt);
+    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    [inputFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+    NSDate *creationDate = [inputFormatter dateFromString:createdAt];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
+    NSLog(@"%@", [outputFormatter stringFromDate:creationDate]);
+    self.dateLabel.text = [NSString stringWithFormat:@"Posted at %@", [outputFormatter stringFromDate:creationDate]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // Load image
+    NSString *imageUrl = [[self.data objectForKey:@"fields"] objectForKey:@"image"];
+    NSString *url = [NSString stringWithFormat:@"http://104.236.43.91/static/media/%@", imageUrl];
+    [self.imageView setImageWithURL:[NSURL URLWithString:url]];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

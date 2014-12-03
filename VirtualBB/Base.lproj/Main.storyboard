@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blackboard.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-cN-HC5">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RCe-Tx-gE7">
                                 <rect key="frame" x="50" y="229" width="220" height="30"/>
@@ -143,10 +143,23 @@
                     <view key="view" contentMode="scaleToFill" id="KBP-Ga-Wm5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6RS-K0-I4Y">
+                                <rect key="frame" x="35" y="159" width="250" height="250"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan a tag to get its snapshots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOL-xU-Y7r">
+                                <rect key="frame" x="41" y="102" width="239" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Retrieve SnapShots" id="d1E-DO-pns"/>
                     <connections>
+                        <outlet property="preview" destination="6RS-K0-I4Y" id="kdu-Ly-HPc"/>
                         <segue destination="eeY-87-JkI" kind="push" identifier="toList" id="dMb-y4-awU"/>
                     </connections>
                 </viewController>
@@ -347,10 +360,10 @@
             </objects>
             <point key="canvasLocation" x="2134" y="680"/>
         </scene>
-        <!--View Controller-->
+        <!--Snap ShotVC-->
         <scene sceneID="dQi-Q7-FfQ">
             <objects>
-                <viewController id="37f-iH-REg" sceneMemberID="viewController">
+                <viewController id="37f-iH-REg" customClass="SnapShotVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Mc-iX-Noq"/>
                         <viewControllerLayoutGuide type="bottom" id="AI8-02-kUq"/>
@@ -358,9 +371,24 @@
                     <view key="view" contentMode="scaleToFill" id="HEN-Gg-KMw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7W0-go-yk7">
+                                <rect key="frame" x="0.0" y="64" width="320" height="413"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-pN-874">
+                                <rect key="frame" x="16" y="490" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oeh-Ok-dz5"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="dXY-pN-874" id="3gj-FZ-Sa8"/>
+                        <outlet property="imageView" destination="7W0-go-yk7" id="CZG-Lr-bVg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bg7-JW-5bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
