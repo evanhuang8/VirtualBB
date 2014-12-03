@@ -19,4 +19,5 @@
 @property (copy) NSString *url;
 @property UIImage *image;
 
+- (id)initWithUrl:(NSString *)url andWithDelegate:(id<VBBImageDelegate>)delegate;
 @end
