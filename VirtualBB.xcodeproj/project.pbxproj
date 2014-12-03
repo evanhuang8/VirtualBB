@@ -30,6 +30,7 @@
 		B59E5DFB1A2EB84F008B005C /* VBBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFA1A2EB84F008B005C /* VBBImage.m */; };
 		B59E5DFE1A2EBAE4008B005C /* SnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */; };
 		B59E5E001A2EE1E9008B005C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59E5DFF1A2EE1E9008B005C /* FacebookSDK.framework */; };
+		F2D752B31A2EF8BF00B30F66 /* VBb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2D752B21A2EF8BF00B30F66 /* VBb.jpg */; };
 		FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4475731C5683CACEC06D61D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 

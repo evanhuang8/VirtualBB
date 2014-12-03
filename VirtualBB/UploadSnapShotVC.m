@@ -91,20 +91,24 @@
         camera.sourceType = UIImagePickerControllerSourceTypeCamera;
         camera.mediaTypes = @[(NSString *)kUTTypeImage];
         camera.allowsEditing = NO;
-        [self presentViewController:camera animated:YES completion:nil];
-        self.shouldShowCamera = NO;
+        double delay = 0.1;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self presentViewController:camera animated:YES completion:^{
+            }];
+            self.shouldShowCamera = NO;
+        });
     }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     self.preview.image = image;
     self.image = image;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:^{
+    [picker dismissViewControllerAnimated:YES completion:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }

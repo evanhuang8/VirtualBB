@@ -35,6 +35,8 @@
     // Initialize image view
     self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     [self addSubview:self.imageView];
+    // Load the image
+    [self loadImage];
     return self;
 }
 

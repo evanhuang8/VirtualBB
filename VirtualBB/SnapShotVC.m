@@ -20,6 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     // Set title
     NSString *caption = [[self.data objectForKey:@"fields"] objectForKey:@"caption"];
     if (caption.length == 0) {
@@ -28,18 +32,12 @@
     self.title = caption;
     // Create at
     NSString *createdAt = [[self.data objectForKey:@"fields"] objectForKey:@"created_at"];
-    NSLog(@"%@", createdAt);
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
     [inputFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     NSDate *creationDate = [inputFormatter dateFromString:createdAt];
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"dd/MM/yyyy HH:mm"];
-    NSLog(@"%@", [outputFormatter stringFromDate:creationDate]);
     self.dateLabel.text = [NSString stringWithFormat:@"Posted at %@", [outputFormatter stringFromDate:creationDate]];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     // Load image
     NSString *imageUrl = [[self.data objectForKey:@"fields"] objectForKey:@"image"];
     NSString *url = [NSString stringWithFormat:@"http://104.236.43.91/static/media/%@", imageUrl];

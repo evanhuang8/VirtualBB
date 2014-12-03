@@ -45,6 +45,13 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toList"]) {
+        SnapShotListVC *listVC = (SnapShotListVC *)segue.destinationViewController;
+        listVC.assets = self.snapshots;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;

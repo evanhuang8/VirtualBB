@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "VBBImage.h"
-@interface SnapShotListVC :UIViewController <VBBImageDelegate>
-@property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *dataArray;
-@property(nonatomic, strong) NSMutableArray *assets;
 
+@interface SnapShotListVC :UIViewController <VBBImageDelegate>
+
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+
+@property (nonatomic, copy) NSArray *assets;
 
 @end
