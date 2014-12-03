@@ -85,6 +85,7 @@
 		B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapShotVC.m; sourceTree = "<group>"; };
 		B59E5DFF1A2EE1E9008B005C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		EA89C179A2B4050ABA2EFEE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F2D752B21A2EF8BF00B30F66 /* VBb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VBb.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 				B59D570E1A2DA9630019B824 /* text-pic-left.png */,
 				B59D57101A2DA9B60019B824 /* camera.png */,
 				B59D57121A2DA9CC0019B824 /* gear.png */,
+				F2D752B21A2EF8BF00B30F66 /* VBb.jpg */,
 				B53CF1381A2D22730089B980 /* AppDelegate.h */,
 				B53CF1391A2D22730089B980 /* AppDelegate.m */,
 				B53CF13B1A2D22730089B980 /* ViewController.h */,
@@ -295,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D752B31A2EF8BF00B30F66 /* VBb.jpg in Resources */,
 				B52FD6A21A2DBCAF00CC103C /* blackboard.jpg in Resources */,
 				B53CF1401A2D22730089B980 /* Main.storyboard in Resources */,
 				B53CF1451A2D22730089B980 /* LaunchScreen.xib in Resources */,
