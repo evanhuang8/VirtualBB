@@ -89,7 +89,6 @@
 }
 
 - (void)retrieveSnapShotsForTag:(NSString *)tag {
-    NSLog(@"%@", self.token);
     NSDictionary *params = @{@"tag": tag, @"token": self.token};
     NSString *url = [NSString stringWithFormat:@"%@list/", self.baseUrl];
     dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);

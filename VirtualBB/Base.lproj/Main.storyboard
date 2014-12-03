@@ -143,10 +143,32 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Retrieve SnapShots" id="d1E-DO-pns"/>
+                    <connections>
+                        <segue destination="eeY-87-JkI" kind="push" identifier="toList" id="dMb-y4-awU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqg-y9-nyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1726" y="36"/>
+        </scene>
+        <!--SnapShots for Tag-->
+        <scene sceneID="M3O-gF-4nj">
+            <objects>
+                <viewController id="eeY-87-JkI" customClass="SnapShotListVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="70N-Iw-0ve"/>
+                        <viewControllerLayoutGuide type="bottom" id="6qi-WN-MJT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lx4-IY-oTf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SnapShots for Tag" id="Srx-34-t2K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Moa-Rg-WrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lnh-z8-hmN">
