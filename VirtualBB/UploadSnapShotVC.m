@@ -13,6 +13,7 @@
 @interface UploadSnapShotVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, VBBClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *preview;
+@property UIImage *image;
 
 @end
 
@@ -20,6 +21,13 @@
 
 - (void)requestForType:(VBBRequestType)type withResponse:(id)response {
     
+}
+
+- (IBAction)upload:(id)sender {
+}
+
+- (IBAction)cancel:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {
@@ -50,6 +58,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     self.preview.image = image;
+    self.image = image;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
