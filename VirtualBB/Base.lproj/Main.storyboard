@@ -16,10 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blackboard.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="djy-NM-gti">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome To Virtual BlackBoard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26s-cV-KsT">
                                 <rect key="frame" x="40" y="197" width="240" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MK-aU-8nR">
@@ -83,6 +86,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blackboard.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IB1-cN-HC5">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RCe-Tx-gE7">
                                 <rect key="frame" x="50" y="229" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -91,7 +97,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j1Y-xM-if5">
                                 <rect key="frame" x="50" y="191" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-q7-O79">
                                 <rect key="frame" x="50" y="267" width="220" height="30"/>
@@ -204,7 +210,7 @@
         <!--Create New SnapShot-->
         <scene sceneID="LzE-ys-Zed">
             <objects>
-                <viewController id="XZ5-uk-rN5" sceneMemberID="viewController">
+                <viewController id="XZ5-uk-rN5" customClass="NewSnapShotVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Fs-C6-euB"/>
                         <viewControllerLayoutGuide type="bottom" id="Yta-ae-bFP"/>
@@ -212,13 +218,48 @@
                     <view key="view" contentMode="scaleToFill" id="dfH-ib-OYC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mka-ZJ-3ng">
+                                <rect key="frame" x="35" y="159" width="250" height="250"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scan a tag to start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-GB-ErK">
+                                <rect key="frame" x="89" y="102" width="142" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create New SnapShot" id="Qyk-9H-gWH"/>
+                    <connections>
+                        <outlet property="preview" destination="mka-ZJ-3ng" id="9jG-jd-OrA"/>
+                        <segue destination="0Qk-Op-kKE" kind="push" identifier="toUpload" id="2lB-RS-tq6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwa-TC-9TM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1726" y="680"/>
+        </scene>
+        <!--Take SnapShot-->
+        <scene sceneID="tsA-fo-6Kp">
+            <objects>
+                <viewController id="0Qk-Op-kKE" customClass="UploadSnapShotVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jcE-1Y-UiW"/>
+                        <viewControllerLayoutGuide type="bottom" id="YZQ-kf-2LL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ydA-5m-kqg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Take SnapShot" id="Nyv-ZV-Frz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yT-ED-dgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="680"/>
         </scene>
         <!--Make SnapShot-->
         <scene sceneID="qAi-Aj-8qm">
@@ -302,6 +343,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="blackboard.jpg" width="600" height="623"/>
         <image name="camera.png" width="30" height="30"/>
         <image name="gear.png" width="30" height="30"/>
         <image name="text-pic-left.png" width="30" height="30"/>

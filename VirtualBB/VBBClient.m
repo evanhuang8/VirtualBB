@@ -22,14 +22,14 @@
 
 - (id)init {
     self = [super init];
-    self.baseUrl = @"http://dev.virtualbb.com:8080/";
+    self.baseUrl = @"http://104.236.43.91/";
     self.manager = [AFHTTPRequestOperationManager manager];
     return self;
 }
 
 - (id)initWithToken:(NSString *)token {
     self = [super init];
-    self.baseUrl = @"http://dev.virtualbb.com:8080/";
+    self.baseUrl = @"http://104.236.43.91/";
     self.manager = [AFHTTPRequestOperationManager manager];
     self.token = token;
     return self;
@@ -39,34 +39,48 @@
     NSDictionary *params = @{@"email": email,
                              @"password": password};
     NSString *url = [NSString stringWithFormat:@"%@login/", self.baseUrl];
-    [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.delegate) {
-            [self.delegate requestForType:VBBLogin withResponse:responseObject];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (self.delegate) {
-            NSDictionary *response = @{@"status": @"FAIL",
-                                       @"message": @"Unknown error has occurred!"};
-            [self.delegate requestForType:VBBLogin withResponse:response];
-        }
-    }];
+    dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
+    dispatch_async(queue, ^{
+        [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.delegate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBLogin withResponse:responseObject];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (self.delegate) {
+                NSDictionary *response = @{@"status": @"FAIL",
+                                           @"message": @"Unknown error has occurred!"};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBLogin withResponse:response];
+                });
+            }
+        }];
+    });
 }
 
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password {
     NSDictionary *params = @{@"email": email,
                              @"password": password};
     NSString *url = [NSString stringWithFormat:@"%@register/", self.baseUrl];
-    [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if (self.delegate) {
-            [self.delegate requestForType:VBBRegister withResponse:responseObject];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (self.delegate) {
-            NSDictionary *response = @{@"status": @"FAIL",
-                                       @"message": @"Unknown error has occurred!"};
-            [self.delegate requestForType:VBBRegister withResponse:response];
-        }
-    }];
+    dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
+    dispatch_async(queue, ^{
+        [self.manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.delegate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBRegister withResponse:responseObject];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (self.delegate) {
+                NSDictionary *response = @{@"status": @"FAIL",
+                                           @"message": @"Unknown error has occurred!"};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBRegister withResponse:response];
+                });
+            }
+        }];
+    });
     
 }
 
@@ -75,7 +89,27 @@
 }
 
 - (void)retrieveSnapShotsForTag:(NSString *)tag {
-    
+    NSLog(@"%@", self.token);
+    NSDictionary *params = @{@"tag": tag, @"token": self.token};
+    NSString *url = [NSString stringWithFormat:@"%@list/", self.baseUrl];
+    dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
+    dispatch_async(queue, ^{
+        [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.delegate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBRetrieveSnapShots withResponse:responseObject];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (self.delegate) {
+                NSDictionary *response = @{@"status": @"FAIL",
+                                           @"message": @"Unknown error has occurred!"};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBRetrieveSnapShots withResponse:response];
+                });
+            }
+        }];
+    });
 }
 
 - (void)getCommentsForSnapshot:(NSString *)snapshot {

@@ -22,6 +22,9 @@
 		B59D57131A2DA9CC0019B824 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = B59D57121A2DA9CC0019B824 /* gear.png */; };
 		B59D57161A2DAF180019B824 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D57151A2DAF180019B824 /* RegisterVC.m */; };
 		B59D57191A2DB4470019B824 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59D57181A2DB4470019B824 /* SettingsVC.m */; };
+		B59E5DED1A2E24BC008B005C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59E5DEC1A2E24BC008B005C /* AVFoundation.framework */; };
+		B59E5DF01A2E610C008B005C /* NewSnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DEF1A2E610C008B005C /* NewSnapShotVC.m */; };
+		B59E5DF31A2E9035008B005C /* UploadSnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DF21A2E9035008B005C /* UploadSnapShotVC.m */; };
 		FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4475731C5683CACEC06D61D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,11 @@
 		B59D57151A2DAF180019B824 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
 		B59D57171A2DB4470019B824 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		B59D57181A2DB4470019B824 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
+		B59E5DEC1A2E24BC008B005C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B59E5DEE1A2E610C008B005C /* NewSnapShotVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSnapShotVC.h; sourceTree = "<group>"; };
+		B59E5DEF1A2E610C008B005C /* NewSnapShotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSnapShotVC.m; sourceTree = "<group>"; };
+		B59E5DF11A2E9035008B005C /* UploadSnapShotVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadSnapShotVC.h; sourceTree = "<group>"; };
+		B59E5DF21A2E9035008B005C /* UploadSnapShotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadSnapShotVC.m; sourceTree = "<group>"; };
 		EA89C179A2B4050ABA2EFEE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59E5DED1A2E24BC008B005C /* AVFoundation.framework in Frameworks */,
 				FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +106,7 @@
 		9601297D2E988A1C733EB9A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B59E5DEC1A2E24BC008B005C /* AVFoundation.framework */,
 				4475731C5683CACEC06D61D8 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -137,6 +147,10 @@
 				B59D57151A2DAF180019B824 /* RegisterVC.m */,
 				B59D57091A2DA5D00019B824 /* RetrieveSnapShotVC.h */,
 				B59D570A1A2DA5D00019B824 /* RetrieveSnapShotVC.m */,
+				B59E5DEE1A2E610C008B005C /* NewSnapShotVC.h */,
+				B59E5DEF1A2E610C008B005C /* NewSnapShotVC.m */,
+				B59E5DF11A2E9035008B005C /* UploadSnapShotVC.h */,
+				B59E5DF21A2E9035008B005C /* UploadSnapShotVC.m */,
 				B59D57171A2DB4470019B824 /* SettingsVC.h */,
 				B59D57181A2DB4470019B824 /* SettingsVC.m */,
 				B53CF15A1A2D24940089B980 /* VBBClient.h */,
@@ -320,7 +334,9 @@
 				B53CF1371A2D22730089B980 /* main.m in Sources */,
 				B59D57191A2DB4470019B824 /* SettingsVC.m in Sources */,
 				B59D57161A2DAF180019B824 /* RegisterVC.m in Sources */,
+				B59E5DF01A2E610C008B005C /* NewSnapShotVC.m in Sources */,
 				B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */,
+				B59E5DF31A2E9035008B005C /* UploadSnapShotVC.m in Sources */,
 				B59D570B1A2DA5D00019B824 /* RetrieveSnapShotVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

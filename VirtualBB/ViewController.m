@@ -27,11 +27,15 @@
             // Login successful, save the access token
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *token = [response objectForKey:@"token"];
+            if (token == nil) {
+                NSLog(@"Error getting token!");
+            }
             [defaults setObject:token forKey:@"token"];
             [defaults synchronize];
             // Clear password
             self.passwordField.text = @"";
             // Show dashboard
+            self.navigationController.navigationBarHidden = YES;
             [self performSegueWithIdentifier:@"toDashboard" sender:self];
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:[response objectForKey:@"message"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -51,6 +55,12 @@
     // Initialize client
     self.client = [[VBBClient alloc] init];
     self.client.delegate = self;
+    // Dismiss keyboards when tapping outside
+    UITapGestureRecognizer *dismissTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    dismissTap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:dismissTap];
+    // Navigation bar style
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +72,15 @@
     if ([defaults objectForKey:@"token"] != nil) {
         // Jump to dashboard directly
         [self performSegueWithIdentifier:@"toDashboard" sender:self];
+    }
+}
+
+- (void)dismissKeyboard {
+    if (self.emailField.isFirstResponder) {
+        [self.emailField resignFirstResponder];
+    }
+    if (self.passwordField.isFirstResponder) {
+        [self.passwordField resignFirstResponder];
     }
 }
 

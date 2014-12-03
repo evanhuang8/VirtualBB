@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (IBAction)logout:(id)sender {
