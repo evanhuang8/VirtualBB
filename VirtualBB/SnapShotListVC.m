@@ -32,7 +32,7 @@
     [super viewDidLoad];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackboard.jpg"]];
+    self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -47,6 +47,8 @@
     UICollectionViewCell *cell = (UICollectionViewCell *)[cView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
     NSDictionary *data = self.assets[indexPath.row];
     VBBImage *image = [[VBBImage alloc] initWithFrame: cell.bounds andWithData:data andWithDelegate:self];
+    image.layer.borderColor = [UIColor whiteColor].CGColor;
+    image.layer.borderWidth = 2;
     [image setUserInteractionEnabled:YES];
     // Add to cell
     [cell addSubview:image];

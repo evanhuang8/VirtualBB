@@ -44,4 +44,13 @@
     [self.imageView setImageWithURL:[NSURL URLWithString:url]];
 }
 
+- (IBAction)saveImage:(id)sender {
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:@"The image has been saved to your camera roll!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
 @end
