@@ -165,6 +165,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SnapShots for Tag" id="Srx-34-t2K"/>
+                    <connections>
+                        <segue destination="37f-iH-REg" kind="push" identifier="toSnapShot" id="fO0-j7-5kD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Moa-Rg-WrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -275,13 +278,40 @@
                     <view key="view" contentMode="scaleToFill" id="ydA-5m-kqg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2qP-nD-0tc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="409"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Take SnapShot" id="Nyv-ZV-Frz"/>
+                    <connections>
+                        <outlet property="preview" destination="2qP-nD-0tc" id="vbs-6S-JGW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0yT-ED-dgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2134" y="680"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dQi-Q7-FfQ">
+            <objects>
+                <viewController id="37f-iH-REg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Mc-iX-Noq"/>
+                        <viewControllerLayoutGuide type="bottom" id="AI8-02-kUq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HEN-Gg-KMw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Oeh-Ok-dz5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bg7-JW-5bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2532" y="36"/>
         </scene>
         <!--Make SnapShot-->
         <scene sceneID="qAi-Aj-8qm">

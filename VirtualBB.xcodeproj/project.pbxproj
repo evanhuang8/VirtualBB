@@ -27,6 +27,8 @@
 		B59E5DF31A2E9035008B005C /* UploadSnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DF21A2E9035008B005C /* UploadSnapShotVC.m */; };
 		B59E5DF51A2E952A008B005C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59E5DF41A2E952A008B005C /* MobileCoreServices.framework */; };
 		B59E5DF81A2EB0BC008B005C /* SnapShotListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DF71A2EB0BC008B005C /* SnapShotListVC.m */; };
+		B59E5DFB1A2EB84F008B005C /* VBBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFA1A2EB84F008B005C /* VBBImage.m */; };
+		B59E5DFE1A2EBAE4008B005C /* SnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */; };
 		FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4475731C5683CACEC06D61D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,10 @@
 		B59E5DF41A2E952A008B005C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B59E5DF61A2EB0BC008B005C /* SnapShotListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapShotListVC.h; sourceTree = "<group>"; };
 		B59E5DF71A2EB0BC008B005C /* SnapShotListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapShotListVC.m; sourceTree = "<group>"; };
+		B59E5DF91A2EB84F008B005C /* VBBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBBImage.h; sourceTree = "<group>"; };
+		B59E5DFA1A2EB84F008B005C /* VBBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBBImage.m; sourceTree = "<group>"; };
+		B59E5DFC1A2EBAE4008B005C /* SnapShotVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapShotVC.h; sourceTree = "<group>"; };
+		B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapShotVC.m; sourceTree = "<group>"; };
 		EA89C179A2B4050ABA2EFEE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +162,10 @@
 				B59D570A1A2DA5D00019B824 /* RetrieveSnapShotVC.m */,
 				B59E5DF61A2EB0BC008B005C /* SnapShotListVC.h */,
 				B59E5DF71A2EB0BC008B005C /* SnapShotListVC.m */,
+				B59E5DFC1A2EBAE4008B005C /* SnapShotVC.h */,
+				B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */,
+				B59E5DF91A2EB84F008B005C /* VBBImage.h */,
+				B59E5DFA1A2EB84F008B005C /* VBBImage.m */,
 				B59E5DEE1A2E610C008B005C /* NewSnapShotVC.h */,
 				B59E5DEF1A2E610C008B005C /* NewSnapShotVC.m */,
 				B59E5DF11A2E9035008B005C /* UploadSnapShotVC.h */,
@@ -342,12 +352,14 @@
 				B53CF13A1A2D22730089B980 /* AppDelegate.m in Sources */,
 				B53CF1371A2D22730089B980 /* main.m in Sources */,
 				B59D57191A2DB4470019B824 /* SettingsVC.m in Sources */,
+				B59E5DFE1A2EBAE4008B005C /* SnapShotVC.m in Sources */,
 				B59D57161A2DAF180019B824 /* RegisterVC.m in Sources */,
 				B59E5DF01A2E610C008B005C /* NewSnapShotVC.m in Sources */,
 				B53CF15C1A2D24940089B980 /* VBBClient.m in Sources */,
 				B59E5DF31A2E9035008B005C /* UploadSnapShotVC.m in Sources */,
 				B59E5DF81A2EB0BC008B005C /* SnapShotListVC.m in Sources */,
 				B59D570B1A2DA5D00019B824 /* RetrieveSnapShotVC.m in Sources */,
+				B59E5DFB1A2EB84F008B005C /* VBBImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  UploadSnapShotVC.h
+//  SnapShotVC.h
 //  VirtualBB
 //
 //  Created by Evan Huang on 12/2/14.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UploadSnapShotVC : UIViewController
+@interface SnapShotVC : UIViewController
 
-@property (copy) NSString *tag;
-@property BOOL shouldShowCamera;
+@property UIImage *image;
 
 @end

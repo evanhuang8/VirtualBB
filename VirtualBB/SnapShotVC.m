@@ -1,26 +1,18 @@
 //
-//  SnapShotListVC.m
+//  SnapShotVC.m
 //  VirtualBB
 //
 //  Created by Evan Huang on 12/2/14.
 //  Copyright (c) 2014 Washington University. All rights reserved.
 //
 
-#import "SnapShotListVC.h"
 #import "SnapShotVC.h"
 
-@interface SnapShotListVC ()
+@interface SnapShotVC ()
 
 @end
 
-@implementation SnapShotListVC
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"toSnapShot"]) {
-        SnapShotVC *snapshot = (SnapShotVC *)segue.destinationViewController;
-        
-    }
-}
+@implementation SnapShotVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

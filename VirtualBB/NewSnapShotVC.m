@@ -71,6 +71,7 @@
     if ([segue.identifier isEqualToString:@"toUpload"]) {
         UploadSnapShotVC *uploadVC = (UploadSnapShotVC *)segue.destinationViewController;
         uploadVC.tag = self.tag;
+        uploadVC.shouldShowCamera = YES;
     }
 }
 

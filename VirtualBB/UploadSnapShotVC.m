@@ -12,7 +12,7 @@
 
 @interface UploadSnapShotVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, VBBClientDelegate>
 
-
+@property (weak, nonatomic) IBOutlet UIImageView *preview;
 
 @end
 
@@ -24,12 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.preview.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self takePicture];
+    if (self.shouldShowCamera) {
+        [self takePicture];
+    }
 }
 
 - (void)takePicture {
@@ -38,17 +40,22 @@
         camera.delegate = self;
         camera.sourceType = UIImagePickerControllerSourceTypeCamera;
         camera.mediaTypes = @[(NSString *)kUTTypeImage];
-        camera.allowsEditing = YES;
+        camera.allowsEditing = NO;
         [self presentViewController:camera animated:YES completion:nil];
+        self.shouldShowCamera = NO;
     }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.preview.image = image;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 @end
