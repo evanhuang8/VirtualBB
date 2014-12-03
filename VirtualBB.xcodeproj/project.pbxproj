@@ -29,6 +29,7 @@
 		B59E5DF81A2EB0BC008B005C /* SnapShotListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DF71A2EB0BC008B005C /* SnapShotListVC.m */; };
 		B59E5DFB1A2EB84F008B005C /* VBBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFA1A2EB84F008B005C /* VBBImage.m */; };
 		B59E5DFE1A2EBAE4008B005C /* SnapShotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */; };
+		B59E5E001A2EE1E9008B005C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59E5DFF1A2EE1E9008B005C /* FacebookSDK.framework */; };
 		FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4475731C5683CACEC06D61D8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		B59E5DFA1A2EB84F008B005C /* VBBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBBImage.m; sourceTree = "<group>"; };
 		B59E5DFC1A2EBAE4008B005C /* SnapShotVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapShotVC.h; sourceTree = "<group>"; };
 		B59E5DFD1A2EBAE4008B005C /* SnapShotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapShotVC.m; sourceTree = "<group>"; };
+		B59E5DFF1A2EE1E9008B005C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		EA89C179A2B4050ABA2EFEE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59E5DF51A2E952A008B005C /* MobileCoreServices.framework in Frameworks */,
+				B59E5E001A2EE1E9008B005C /* FacebookSDK.framework in Frameworks */,
 				B59E5DED1A2E24BC008B005C /* AVFoundation.framework in Frameworks */,
 				FDA807D876A0E9A94AD5AB5C /* libPods.a in Frameworks */,
 			);
@@ -118,6 +121,7 @@
 		9601297D2E988A1C733EB9A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B59E5DFF1A2EE1E9008B005C /* FacebookSDK.framework */,
 				B59E5DF41A2E952A008B005C /* MobileCoreServices.framework */,
 				B59E5DEC1A2E24BC008B005C /* AVFoundation.framework */,
 				4475731C5683CACEC06D61D8 /* libPods.a */,
@@ -484,6 +488,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/evanhuang8/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = VirtualBB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -499,6 +507,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/evanhuang8/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = VirtualBB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

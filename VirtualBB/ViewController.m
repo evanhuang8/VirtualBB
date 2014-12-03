@@ -6,15 +6,17 @@
 //  Copyright (c) 2014 Washington University. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
 #import "ViewController.h"
 #import "VBBClient.h"
 
-@interface ViewController () <VBBClientDelegate>
+@interface ViewController () <VBBClientDelegate, FBLoginViewDelegate>
 
 @property VBBClient *client;
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet FBLoginView *fbLoginButton;
 
 @end
 
@@ -22,7 +24,7 @@
 @implementation ViewController
 
 - (void)requestForType:(VBBRequestType)type withResponse:(id)response {
-    if (type == VBBLogin){
+    if (type == VBBLogin || type == VBBFBLogin){
         if ([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
             // Login successful, save the access token
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -61,6 +63,8 @@
     [self.view addGestureRecognizer:dismissTap];
     // Navigation bar style
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    // FB Login
+    self.fbLoginButton.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -95,6 +99,11 @@
 - (IBAction)register:(id)sender {
     self.title = @"Back";
     [self performSegueWithIdentifier:@"toRegister" sender:self];
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user {
+    NSString *fbID = user.id;
+    [self.client loginWithFacebookUserID:fbID];
 }
 
 @end

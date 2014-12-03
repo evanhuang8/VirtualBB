@@ -59,6 +59,29 @@
     });
 }
 
+- (void)loginWithFacebookUserID:(NSString *)fbID {
+    NSDictionary *params = @{@"fbid": fbID};
+    NSString *url = [NSString stringWithFormat:@"%@fblogin/", self.baseUrl];
+    dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
+    dispatch_async(queue, ^{
+        [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.delegate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBFBLogin withResponse:responseObject];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (self.delegate) {
+                NSDictionary *response = @{@"status": @"FAIL",
+                                           @"message": @"Unknown error has occurred!"};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBFBLogin withResponse:response];
+                });
+            }
+        }];
+    });
+}
+
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password {
     NSDictionary *params = @{@"email": email,
                              @"password": password};

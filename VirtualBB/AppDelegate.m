@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Washington University. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 #import "ViewController.h"
 
@@ -17,9 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    //ViewController * baseView = [[ViewController alloc]init];
-    //[self.window setRootViewController:baseView];
+    [FBLoginView class];
     return YES;
 }
 
@@ -43,6 +42,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    return wasHandled;
 }
 
 @end

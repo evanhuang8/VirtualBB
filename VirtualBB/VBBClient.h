@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, VBBRequestType) {
     VBBLogin,
+    VBBFBLogin,
     VBBRegister,
     VBBCreateSnapShot,
     VBBRetrieveSnapShots,
@@ -29,6 +30,7 @@ typedef NS_ENUM(NSInteger, VBBRequestType) {
 - (id)initWithToken:(NSString *)token;
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password;
+- (void)loginWithFacebookUserID:(NSString *)fbID;
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password;
 - (void)createSnapshotForTag:(NSString *)tag withImage:(NSData *)image andCaption:(NSString *)caption;
 - (void)retrieveSnapShotsForTag:(NSString *)tag;
