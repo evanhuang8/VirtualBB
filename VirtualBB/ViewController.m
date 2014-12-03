@@ -66,7 +66,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    self.navigationController.title = @"VirtualBB";
+    self.title = @"VirtualBB";
     // Check if the access token is set
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"token"] != nil) {
@@ -93,6 +93,7 @@
 }
 
 - (IBAction)register:(id)sender {
+    self.title = @"Back";
     [self performSegueWithIdentifier:@"toRegister" sender:self];
 }
 

@@ -17,7 +17,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toSnapShot"]) {
-        SnapShotVC *snapshot = (SnapShotVC *)segue.destinationViewController;
         
     }
 }
@@ -25,6 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self performSegueWithIdentifier:@"toSnapShot" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
