@@ -10,35 +10,78 @@
 #import "UploadSnapShotVC.h"
 #import "VBBClient.h"
 
-@interface UploadSnapShotVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, VBBClientDelegate>
+@interface UploadSnapShotVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, VBBClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *preview;
+@property (weak, nonatomic) IBOutlet UITextField *captionField;
 @property UIImage *image;
+
+@property VBBClient *client;
+
+@property BOOL uploadSuccessful;
 
 @end
 
 @implementation UploadSnapShotVC
 
 - (void)requestForType:(VBBRequestType)type withResponse:(id)response {
-    
+    if (type == VBBCreateSnapShot) {
+        if ([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
+            NSLog(@"SnapShot created!");
+            self.uploadSuccessful = YES;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:@"Your snapshot has been created!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            alertView.delegate = self;
+            [alertView show];
+        } else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Virtual BB" message:@"Upload failed, please try again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (self.uploadSuccessful && buttonIndex == 0) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)upload:(id)sender {
+    if (self.image != nil) {
+        NSData *image = UIImageJPEGRepresentation(self.image, 0.5);
+        NSString *caption = self.captionField.text;
+        [self.client createSnapshotForTag:self.tag withImage:image andCaption:caption];
+    }
 }
 
-- (IBAction)cancel:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)retake:(id)sender {
+    [self takePicture];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.preview.contentMode = UIViewContentModeScaleAspectFit;
+    // Create client
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults objectForKey:@"token"];
+    self.client = [[VBBClient alloc] initWithToken:token];
+    self.client.delegate = self;
+    // Dismiss keyboards when tapping outside
+    UITapGestureRecognizer *dismissTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    dismissTap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:dismissTap];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.uploadSuccessful = NO;
     if (self.shouldShowCamera) {
         [self takePicture];
+    }
+}
+
+- (void)dismissKeyboard {
+    if (self.captionField.isFirstResponder) {
+        [self.captionField resignFirstResponder];
     }
 }
 

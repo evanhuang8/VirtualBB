@@ -84,8 +84,34 @@
     
 }
 
-- (void)createSnapshotForTag:(NSString *)tag withImage:(NSData *)image {
-    
+- (void)createSnapshotForTag:(NSString *)tag withImage:(NSData *)image andCaption:(NSString *)caption {
+    NSDictionary *params = @{@"tag": tag,
+                             @"caption": caption,
+                             @"token": self.token};
+    NSString *url = [NSString stringWithFormat:@"%@create/", self.baseUrl];
+    dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
+    dispatch_async(queue, ^{
+        AFHTTPRequestOperation *request = [self.manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            NSString *imageName = [[[NSUUID UUID] UUIDString] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+            imageName = [NSString stringWithFormat:@"%@.jpg", imageName];
+            [formData appendPartWithFileData:image name:@"image" fileName:imageName mimeType:@"image/jpeg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if (self.delegate) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBCreateSnapShot withResponse:responseObject];
+                });
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            if (self.delegate) {
+                NSDictionary *response = @{@"status": @"FAIL",
+                                           @"message": @"Unknown error has occurred!"};
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate requestForType:VBBCreateSnapShot withResponse:response];
+                });
+            }
+        }];
+        [request start];
+    });
 }
 
 - (void)retrieveSnapShotsForTag:(NSString *)tag {
@@ -94,6 +120,7 @@
     dispatch_queue_t queue = dispatch_queue_create("vbbclient", NULL);
     dispatch_async(queue, ^{
         [self.manager GET:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             if (self.delegate) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.delegate requestForType:VBBRetrieveSnapShots withResponse:responseObject];

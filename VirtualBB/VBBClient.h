@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, VBBRequestType) {
 
 - (void)loginWithEmail:(NSString *)email andPassword:(NSString *)password;
 - (void)registerWithEmail:(NSString *)email andPassword:(NSString *)password;
-- (void)createSnapshotForTag:(NSString *)tag withImage:(NSData *)image;
+- (void)createSnapshotForTag:(NSString *)tag withImage:(NSData *)image andCaption:(NSString *)caption;
 - (void)retrieveSnapShotsForTag:(NSString *)tag;
 - (void)getCommentsForSnapshot:(NSString *)snapshot;
 

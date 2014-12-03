@@ -16,7 +16,7 @@
 
 @interface VBBImage : UIView
 
-@property (copy) NSString *url;
+@property NSDictionary *data;
 @property UIImage *image;
 
 - (id)initWithUrl:(NSString *)url andWithDelegate:(id<VBBImageDelegate>)delegate;
